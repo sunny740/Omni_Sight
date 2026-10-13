@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+playwright
+langchain
+pygithub
+gorq
+torch
+pillow
+pydantic
+python-dotenv
+requests
