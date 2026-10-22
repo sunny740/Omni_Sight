@@ -1,11 +1,4 @@
-fastapi
-uvicorn
-playwright
-langchain
-pygithub
-gorq
-torch
-pillow
-pydantic
+streamlit
+google-genai
+pymupdf
 python-dotenv
-requests
