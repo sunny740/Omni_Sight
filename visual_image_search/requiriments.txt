@@ -1,0 +1,7 @@
+chromadb
+sentence-transformers
+Pillow
+numpy
+groq
+python-dotenv
+matplotlib
