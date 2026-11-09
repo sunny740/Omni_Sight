@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Sign in | PaperTrail</title><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head>
+<body class="desktop-page login-page">
+<div class="device-notice">This login experience is designed for a desktop browser. Please widen your browser window to continue.</div>
+<main class="login-shell">
+  <section class="login-art">
+    <div class="brand light"><span class="brand-mark">P</span> papertrail</div>
+    <div class="art-copy"><p class="eyebrow">A LITTLE ESCAPE, A PAGE AT A TIME</p><h1>Find your next<br><em>great read.</em></h1><p>Stories, ideas and inspiration delivered straight to your bookshelf.</p></div>
+    <div class="art-footer">Curated reads for curious minds.</div>
+  </section>
+  <section class="login-form-wrap">
+    <div class="brand"><span class="brand-mark">P</span> papertrail</div>
+    <div class="login-card">
+      <p class="eyebrow">WELCOME BACK</p><h2>Sign in to your account</h2><p class="muted">Pick up where your next chapter begins.</p>
+      {% with messages = get_flashed_messages(with_categories=true) %}{% for category, message in messages %}<div class="alert {{ category }}">{{ message }}</div>{% endfor %}{% endwith %}
+      <form method="post">
+        <label for="user_id">User ID</label><input id="user_id" name="user_id" type="text" placeholder="Enter your user ID" required>
+        <label for="password">Password</label><input id="password" name="password" type="password" placeholder="Enter your password" required>
+        <button class="btn primary full" type="submit">Sign in <span>→</span></button>
+      </form>
+      <div class="demo-box"><strong>Demo credentials</strong><span>User ID: <b>demo</b></span><span>Password: <b>book123</b></span></div>
+    </div>
+    <p class="fine-print">© 2026 PaperTrail Books · Demo storefront</p>
+  </section>
+</main>
+</body></html>
