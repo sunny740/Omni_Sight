@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Order confirmed | PaperTrail</title><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head>
+<body class="tablet-page success-page">
+<div class="device-notice">The order confirmation page is optimized for tablet-sized screens (768–1100px wide).</div>
+<header class="topbar"><a class="brand" href="{{ url_for('shop') }}"><span class="brand-mark">P</span> papertrail</a><div class="top-actions"><a class="logout-link" href="{{ url_for('logout') }}">Log out</a></div></header>
+<main class="tablet-content success-content"><div class="success-mark">✓</div><p class="eyebrow">ORDER CONFIRMED</p><h1>Your next chapter<br>is on its way.</h1><p class="muted">Thanks, {{ order.customer.name }}. Your demo order has been placed successfully.</p>
+<section class="confirmation-card"><div class="confirmation-top"><div><small>ORDER NUMBER</small><strong>{{ order.number }}</strong></div><div><small>ORDER DATE</small><strong>{{ order.date }}</strong></div></div><h2>Order details</h2>{% for row in order.items %}<div class="checkout-item"><div><strong>{{ row.book.title }}</strong><small>Qty {{ row.quantity }}</small></div><strong>₹{{ row.subtotal }}</strong></div>{% endfor %}<div class="summary-total"><span>Order total</span><strong>₹{{ order.total }}</strong></div><div class="delivery-address"><strong>Delivering to</strong><p>{{ order.customer.name }} · {{ order.customer.phone }}<br>{{ order.customer.address }}<br>{{ order.customer.email }}</p></div></section>
+<a class="btn primary" href="{{ url_for('shop') }}">Continue exploring books →</a></main>
+</body></html>
