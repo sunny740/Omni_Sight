@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Place your order | PaperTrail</title><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head>
+<body class="tablet-page checkout-page">
+<div class="device-notice">The checkout page is optimized for tablet-sized screens (768–1100px wide).</div>
+<header class="topbar"><a class="brand" href="{{ url_for('shop') }}"><span class="brand-mark">P</span> papertrail</a><div class="top-actions"><a class="logout-link" href="{{ url_for('cart') }}">← Back to cart</a><a class="logout-link" href="{{ url_for('logout') }}">Log out</a></div></header>
+<main class="tablet-content">
+  <div class="page-intro"><p class="eyebrow">FINAL STEP</p><h1>Where should we send it?</h1><p class="muted">Add your delivery details and confirm your book order.</p></div>
+  {% with messages = get_flashed_messages(with_categories=true) %}{% for category, message in messages %}<div class="alert {{ category }}">{{ message }}</div>{% endfor %}{% endwith %}
+  <div class="checkout-layout"><section class="form-panel"><h2>Delivery details</h2><form method="post" class="delivery-form">
+    <label for="name">Full name</label><input id="name" name="name" placeholder="Your full name" required>
+    <div class="form-two"><div><label for="email">Email address</label><input id="email" name="email" type="email" placeholder="you@example.com" required></div><div><label for="phone">Phone number</label><input id="phone" name="phone" type="tel" placeholder="10-digit phone number" required></div></div>
+    <label for="address">Delivery address</label><textarea id="address" name="address" rows="4" placeholder="House / street, area, city, PIN code" required></textarea>
+    <div class="payment-note"><span>✓</span><div><strong>Demo payment</strong><p>No real payment is processed. This demo places the order without collecting money.</p></div></div>
+    <button class="btn primary full" type="submit">Place order · ₹{{ total }}</button>
+  </form></section>
+  <aside class="summary-panel"><p class="eyebrow">YOUR ORDER</p><h2>Order summary</h2>{% for row in rows %}<div class="checkout-item"><div><strong>{{ row.book.title }}</strong><small>Qty {{ row.quantity }} × ₹{{ row.book.price }}</small></div><strong>₹{{ row.subtotal }}</strong></div>{% endfor %}<div class="summary-line"><span>Delivery</span><strong class="free">FREE</strong></div><div class="summary-total"><span>Total payable</span><strong>₹{{ total }}</strong></div><p class="secure-note">Your order details are stored for this demo session.</p></aside></div>
+</main>
+</body></html>
